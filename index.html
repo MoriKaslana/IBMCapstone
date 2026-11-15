@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TestCase Genie - Generate test cases from user stories">
+    <title>TestCase Genie</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="title">
+                    <span class="icon">🧞</span>
+                    <span data-i18n="appTitle">TestCase Genie</span>
+                </h1>
+                <p class="subtitle" data-i18n="appSubtitle">Generate comprehensive test cases from your user stories</p>
+            </div>
+            
+            <!-- Language Toggle -->
+            <div class="language-toggle">
+                <button id="langBtn" class="lang-btn" aria-label="Toggle language">
+                    <span class="lang-text">🇮🇩 ID</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Input Section -->
+        <section class="input-section">
+            <div class="section-header">
+                <h2 data-i18n="inputTitle">Enter User Story or Feature Description</h2>
+                <div class="sample-buttons">
+                    <button id="sample1Btn" class="sample-btn" data-i18n="sample1">Sample 1: Login</button>
+                    <button id="sample2Btn" class="sample-btn" data-i18n="sample2">Sample 2: Payment</button>
+                </div>
+            </div>
+            
+            <textarea 
+                id="userStoryInput" 
+                class="input-textarea" 
+                rows="6"
+                placeholder="Example: As a user, I want to login to the system so that I can access my dashboard..."
+                data-i18n-placeholder="inputPlaceholder"
+                aria-label="User story input"
+            ></textarea>
+            
+            <!-- Error Message -->
+            <div id="errorMessage" class="error-message" role="alert" aria-live="polite"></div>
+            
+            <button id="generateBtn" class="generate-btn" data-i18n="generateBtn">
+                <span class="btn-icon">✨</span>
+                Generate Test Cases
+            </button>
+        </section>
+
+        <!-- Results Section -->
+        <section id="resultsSection" class="results-section" style="display: none;">
+            <div class="results-header">
+                <h2 data-i18n="resultsTitle">Generated Test Cases</h2>
+                
+                <div class="results-controls">
+                    <!-- Filter Dropdown -->
+                    <div class="filter-group">
+                        <label for="typeFilter" data-i18n="filterLabel">Filter by Type:</label>
+                        <select id="typeFilter" class="filter-select" aria-label="Filter test cases by type">
+                            <option value="all" data-i18n="filterAll">All Types</option>
+                            <option value="Positive" data-i18n="filterPositive">Positive</option>
+                            <option value="Negative" data-i18n="filterNegative">Negative</option>
+                            <option value="Edge" data-i18n="filterEdge">Edge Case</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Download CSV Button -->
+                    <button id="downloadBtn" class="download-btn" data-i18n="downloadBtn">
+                        <span class="btn-icon">📥</span>
+                        Download CSV
+                    </button>
+                </div>
+            </div>
+
+            <!-- Summary Bar -->
+            <div class="table-summary-bar">
+                <div class="summary-item">
+                    <span class="summary-item-label" data-i18n="positiveCases">Positive:</span>
+                    <span id="summaryPositive" class="summary-item-count">0</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-item-label" data-i18n="negativeCases">Negative:</span>
+                    <span id="summaryNegative" class="summary-item-count">0</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-item-label" data-i18n="edgeCases">Edge:</span>
+                    <span id="summaryEdge" class="summary-item-count">0</span>
+                </div>
+            </div>
+
+            <!-- Test Cases Table -->
+            <div class="table-container">
+                <table id="testCasesTable" class="test-cases-table">
+                    <thead>
+                        <tr>
+                            <th data-i18n="colID">ID</th>
+                            <th data-i18n="colTitle">Title</th>
+                            <th data-i18n="colType">Type</th>
+                            <th data-i18n="colSteps">Steps</th>
+                            <th data-i18n="colExpected">Expected Result</th>
+                            <th data-i18n="colPriority">Priority</th>
+                        </tr>
+                    </thead>
+                    <tbody id="testCasesBody">
+                        <!-- Test cases will be inserted here dynamically -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Summary Stats -->
+            <div class="summary-stats">
+                <div class="stat-item">
+                    <span class="stat-label" data-i18n="totalCases">Total Cases:</span>
+                    <span id="totalCases" class="stat-value">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label" data-i18n="positiveCases">Positive:</span>
+                    <span id="positiveCases" class="stat-value">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label" data-i18n="negativeCases">Negative:</span>
+                    <span id="negativeCases" class="stat-value">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label" data-i18n="edgeCases">Edge:</span>
+                    <span id="edgeCases" class="stat-value">0</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p data-i18n="footerText">Built for junior QA testers and developers</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+</content>
+</write_to_file>
